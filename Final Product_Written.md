@@ -8,7 +8,6 @@ A situation you would not want to find yourself in is with a team of aging playe
 Using data, I aimed to answer these questions by looking at four key performance statistics over the course of a player's career: points, rebounds, and field goal percentage.
 My prediction going into the project was that all four of these statistics would follow somewhat of a bell-shaped curve over time, meaning that the middle years of their careers would be the most productive, with the beginning and ending years the least.
 More specifically, I hypothesized that the ages of 26-30 would be the prime years of a given player's career.
-From my intuition and prior knowledge, I surmised that during these years, a player's physical ability, as well as skills and knowledge of the game would both be converging at or near their peaks.
 
 When I went about finding a data set to pose these questions to, there were several important factors that were considered:
     Consistency of time period
@@ -68,7 +67,7 @@ Overall
 
 In total, the data was not very conclusive as far as shedding light of the ages of a player's prime.
 
-One reason I believe the data was not very helpful in this exercise is because my population included the best players.
+One reason I believe the data was not very helpful in this exercise is because my population included only the best players from the time range.
 Each of the players in my population had long, fruitful careers, and were considered the model of consistency over the decade.
 For this reason, their career arcs probably don't follow those of an average NBA player.
 
