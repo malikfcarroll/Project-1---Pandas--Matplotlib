@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[267]:
 
 
 import pandas as pd
@@ -11,8 +10,6 @@ from scipy import stats
 
 #Importing tools and libraries needed 
 
-
-# In[268]:
 
 
 pl_one_data = pd.read_csv('nbadatasets/allen.csv')
@@ -35,16 +32,12 @@ pl_fifteen_data = pd.read_csv('nbadatasets/stojakovic.csv')
 #Each file contains data for each of the fifteen players in our population
 
 
-# In[269]:
-
 
 pl_eight_data.head()
 
 #Printing the first five lines of one of the data sets to see what our table looks like
 #Also making note of the titles of our columns of interest for later use
 
-
-# In[270]:
 
 
 allen = pl_one_data[['Age', 'PTS', 'TRB', 'AST', 'FG%']]
@@ -66,8 +59,6 @@ stojakovic = pl_fifteen_data[['Age', 'PTS', 'TRB', 'AST', 'FG%']]
 #Assigning the relevant columns to fifteen new data frames for each player
 #Considered dropping the unwanted columns instead, but want to preserve the original data sets
 
-
-# In[272]:
 
 
 allen['Name'] = 'Ray Allen'
@@ -91,8 +82,6 @@ stojakovic['Name'] = 'Peja Stojakovic'
 #Rather than remembering the index, we can now call directly by name
 
 
-# In[273]:
-
 
 df = pd.concat(
     [allen, billups, bryant, carter, duncan, garnett, iverson, kidd, marion, mcgrady, nash, nowitski, oneal, pierce, stojakovic]
@@ -102,8 +91,6 @@ df = pd.concat(
 #This will make it easier to just call columns and rows from one specific data frame instead of fifteen
 
 
-# In[274]:
-
 
 df.info()
 print(df.head())
@@ -112,16 +99,12 @@ print(df.head())
 #Confirms that our new data frame df is properly formatted and should contain the information we need
 
 
-# In[275]:
-
 
 df_grouped = df.groupby(['Name', 'Age'])['PTS'].unique().reset_index()
 print(df_grouped.head())
 
 #For the first analysis, sorting the number of points scored by the player and their age for the season
 
-
-# In[276]:
 
 
 df_pivoted = df_grouped.pivot(index='Name', columns='Age', values='PTS').reset_index()
@@ -133,8 +116,6 @@ print(df_pivoted)
 #It would be hard to make meaningful conclusions off of one or two values
 
 
-# In[277]:
-
 
 for i in range(22, 35):
     print('Average points for age ' + str(i) + ': ' + str(df_pivoted[i].mean()))
@@ -142,16 +123,12 @@ for i in range(22, 35):
 #Before plotting, looking at any obvious trends in the averages    
 
 
-# In[278]:
-
 
 for i in range(22, 35):
     print('Maximum points for age ' + str(i) + ': ' + str(df_pivoted[i].max()))
     
 #Looking for any obvious trends in the maximums    
 
-
-# In[279]:
 
 
 df = df.loc[(df['Age'] >= 22) & (df['Age'] <= 34)]
@@ -183,8 +160,6 @@ plt.show()
 #Saving image of plot
 
 
-# In[281]:
-
 
 get_ipython().run_line_magic('matplotlib', 'inline')
 
@@ -215,8 +190,6 @@ print('Quadratic function of best fit is: ' + str(lobf_pts[0]) + 'x^2 + ' + str(
 #Adding a legend to identify the regression line
 
 
-# In[264]:
-
 
 get_ipython().run_line_magic('matplotlib', 'inline')
 
@@ -241,8 +214,6 @@ print('Quadratic function of best fit is: ' + str(lobf_reb[0]) + 'x^2 + ' + str(
 #Plotting Rebounds versus Age
 #No real relationship seen here, independent of linear, quadratic, cubic, etc regression
 
-
-# In[259]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -271,8 +242,6 @@ print('R^2 value is: ' + str(r_value**2))
 #No real relationship seen here, independent of linear, quadratic, cubic, etc. regression
 
 
-# In[283]:
-
 
 get_ipython().run_line_magic('matplotlib', 'inline')
 
@@ -297,8 +266,6 @@ print('Quadratic function of best fit is: ' + str(lobf_fgp[0]) + 'x^2 - ' + str(
 #Plotting FG% versus Age
 #No real relationship seen here, independent of linear, quadratic, cubic, etc. regression
 
-
-# In[ ]:
 
 
 
